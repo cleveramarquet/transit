@@ -737,8 +737,10 @@ _If a modification affects the first stop of the trip, that stop also serves as 
 | **travel_time_to_stop** | [int32](https://protobuf.dev/programming-guides/proto2/#scalar) | Optional | One | The difference in seconds between the arrival time at this stop and the arrival time at the reference stop. The reference stop is the stop prior to `start_stop_selector`. If the modification begins at the first stop of the trip, then the first stop of the trip is the reference stop. <br/><br/>This value MUST be monotonically increasing and may only be a negative number if the first stop of the original trip is the reference stop. <br/><br/>If the value is not supplied, consumers MAY interpolate or infer the `travel_time_to_stop` based on other data. |
 
 ## _message_ Route
+
 Real-time information about a transit route. This message is used to dynamically define a route that does not exist in the static GTFS.
 
+<br><br>**Caution:** this field is still **experimental**, and subject to change. It may be formally adopted in the future.
 | _**Field Name**_ | _**Type**_ | _**Required**_ | _**Cardinality**_ | _**Description**_ |
 | :--- | :--- | :--- | :--- | :--- |
 | **route_id** | [string](https://protobuf.dev/programming-guides/proto2/#scalar) | Required | One | Identifier of the route. Must be different than any route_id defined in the static GTFS. Note: route_id should not be reused for different disruptions or car pools on the same service day.|
